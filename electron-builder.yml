@@ -4,4 +4,4 @@ publish:
   token: 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
   private: true
   owner: achatainga
-  repo: https://github.com/achatainga/nonfungible-premium-dashboard.git
+  repo: nonfungible-premium-dashboard

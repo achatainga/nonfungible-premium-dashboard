@@ -10,12 +10,13 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
+    "first-install": "yarn expo-electron",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
     "build": "yarn electron-webpack && yarn electron-builder --dir -c.compression=store --win --publish never",
-    "deploy": "set DEBUG=electron-builder && yarn electron-webpack && yarn electron-builder --config electron-builder.yml --win --publish always"
+    "deploy": "yarn electron-webpack && yarn electron-builder --config electron-builder.yml --win --publish always"
   },
   "repository": {
     "type" : "git",

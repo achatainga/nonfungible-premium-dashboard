@@ -1,0 +1,11 @@
+{
+  "publish": [
+    {
+      "provider": "github",
+      "private": true,
+      "owner": "achatainga",
+      "repo": "nonfungible-premium-dashboard",
+      "token": "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"
+    }
+  ]
+}
