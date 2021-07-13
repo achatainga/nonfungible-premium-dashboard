@@ -6,7 +6,7 @@
     "email": "alejandro@nonfungible.com",
     "url": "https://nonfungible.com"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -16,7 +16,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "build": "yarn electron-webpack && yarn electron-builder --dir -c.compression=store --publish never",
-    "deploy": "yarn electron-webpack && yarn electron-builder --win -c.compression=store --publish never"
+    "deploy": "yarn electron-webpack && yarn electron-builder --win -c.compression=store --publish always"
   },
   "repository": {
     "type": "git",
