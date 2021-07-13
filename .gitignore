@@ -19,3 +19,7 @@ web-build/
 # electron-webpack
 /dist
 # @end @expo/electron-adapter
+
+electron-builder.yml
+
+/.expo/*

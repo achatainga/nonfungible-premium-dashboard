@@ -7,7 +7,13 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "build": "yarn electron-webpack && yarn electron-builder --dir -c.compression=store --publish never",
+    "deploy": "yarn electron-webpack && yarn electron-builder --dir --publish always"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/achatainga/nonfungible-premium-dashboard.git"
   },
   "dependencies": {
     "electron-updater": "^4.3.9",
