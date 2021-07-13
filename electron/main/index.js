@@ -12,7 +12,7 @@ let mainWindow;
 
 function createMainWindow() {
   autoUpdater.checkForUpdatesAndNotify();
-  const browserWindow = new BrowserWindow({ webPreferences: { nodeIntegration: true } });
+  const browserWindow = new BrowserWindow({ webPreferences: { nodeIntegration: true, contextIsolation: false } });
 
   if (isDevelopment) {
     browserWindow.webContents.openDevTools();

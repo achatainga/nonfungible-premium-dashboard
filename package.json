@@ -15,12 +15,12 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build": "yarn electron-webpack && yarn electron-builder --dir -c.compression=store --win --publish never",
-    "deploy": "yarn electron-webpack && yarn electron-builder --config electron-builder.yml --win --publish always"
+    "build": "yarn electron-webpack && yarn electron-builder --dir -c.compression=store --publish never",
+    "deploy": "yarn electron-webpack && yarn electron-builder --win -c.compression=store --publish never"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/achatainga/nonfungible-premium-dashboard.git"
+    "type": "git",
+    "url": "https://github.com/achatainga/nonfungible-premium-dashboard.git"
   },
   "dependencies": {
     "electron-updater": "^4.3.9",
@@ -35,6 +35,7 @@
     "@babel/core": "^7.9.0",
     "@expo/electron-adapter": "^0.0.55",
     "@expo/webpack-config": "^0.12.82",
+    "babel-loader": "^8.2.2",
     "electron": "^6.0.12",
     "electron-builder": "^22.11.7"
   },
