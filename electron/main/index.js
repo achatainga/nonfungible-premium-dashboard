@@ -12,10 +12,16 @@ let mainWindow;
 
 function createMainWindow() {
   autoUpdater.checkForUpdatesAndNotify();
-  const browserWindow = new BrowserWindow({ webPreferences: { nodeIntegration: true, contextIsolation: false } });
+  const browserWindow = new BrowserWindow({ 
+    webPreferences: { nodeIntegration: true, contextIsolation: false },
+    minWidth: 800,
+    minHeight: 600,
+    width: 840,
+    height: 680
+  });
 
   if (isDevelopment) {
-    browserWindow.webContents.openDevTools();
+    // browserWindow.webContents.openDevTools();
   }
 
   if (isDevelopment) {

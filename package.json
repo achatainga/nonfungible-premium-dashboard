@@ -9,7 +9,7 @@
   "version": "1.0.3",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
+    "start": "yarn expo-electron start",
     "first-install": "yarn expo-electron",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -29,7 +29,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "react-native-webview": "^11.6.5"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
