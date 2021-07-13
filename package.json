@@ -16,7 +16,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "build": "yarn electron-webpack && yarn electron-builder --dir -c.compression=store --publish never",
-    "deploy": "yarn electron-webpack && yarn electron-builder --win -c.compression=store --publish always"
+    "deploy": "GH_TOKEN=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 && yarn electron-webpack && yarn electron-builder --win -c.compression=store --publish always"
   },
   "repository": {
     "type": "git",
