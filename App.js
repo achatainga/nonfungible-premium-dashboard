@@ -6,7 +6,7 @@ import { NativeWebView } from './components/native-webview';
 export default function App() {
   return (
     <View style={styles.container}>
-      <NativeWebView target="https://cms1.nonfungible.com/docs" />
+      <NativeWebView target="http://localhost:8000" />
       <StatusBar style="auto" />
     </View>
   );

@@ -4,15 +4,16 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 import * as path from 'path';
 import { format as formatUrl } from 'url';
 import { autoUpdater } from "electron-updater"
+import { parse } from 'node-html-parser';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
 let mainWindow;
-
+var browserWindow
 function createMainWindow() {
   autoUpdater.checkForUpdatesAndNotify();
-  const browserWindow = new BrowserWindow({ 
+  browserWindow = new BrowserWindow({ 
     webPreferences: { nodeIntegration: true, contextIsolation: false },
     minWidth: 800,
     minHeight: 600,
@@ -25,7 +26,7 @@ function createMainWindow() {
   }
 
   if (isDevelopment) {
-    browserWindow.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`);
+    browserWindow.loadURL(`https://cms1.nonfungible.com`);//`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`);
   } else {
     browserWindow.loadURL(
       formatUrl({
@@ -46,6 +47,15 @@ function createMainWindow() {
       browserWindow.focus();
     });
   });
+
+  browserWindow.webContents.on('did-navigate', (contents) => {
+    browserWindow.webContents.executeJavaScript(`
+      require('electron').ipcRenderer.send('gpu', document.body.innerHTML);
+    `);
+    console.log(contents)
+  } )
+
+  
 
   return browserWindow;
 }
@@ -84,3 +94,22 @@ ipcMain.on('app_version', (event) => {
 ipcMain.on('restart_app', () => {
   autoUpdater.quitAndInstall();
 });
+
+ipcMain.on('gpu', (_, gpu) => {
+  const body = parse( gpu );
+  const token = body.querySelector('pre')?.childNodes[0]?._rawText;
+  var jwtAuthToken;
+  if ( typeof token != undefined ) {
+    try {
+      jwtAuthToken = JSON.parse( token )?.jwtAuthToken
+      if ( typeof jwtAuthToken != undefined ) {
+        console.log( jwtAuthToken );
+        browserWindow.loadURL(`https://cms1.nonfungible.com/docs`);
+        browserWindow.show();
+      }
+    } catch (e) {
+      return false;
+    }
+    
+  }
+})

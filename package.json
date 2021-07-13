@@ -26,6 +26,7 @@
     "electron-updater": "^4.3.9",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
+    "node-html-parser": "^4.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
@@ -42,6 +43,9 @@
   },
   "private": true,
   "build": {
+    "nsis": {
+      "deleteAppDataOnUninstall": true
+    },
     "publish": [
       {
         "provider": "github",
