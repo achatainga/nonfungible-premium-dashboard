@@ -1,6 +1,12 @@
 {
   "name": "nfpd",
-  "version": "1.0.0",
+  "description": "NonFungible Premium Dashboard Alpha",
+  "author": {
+    "name": "NonFungible Dev Team",
+    "email": "alejandro@nonfungible.com",
+    "url": "https://nonfungible.com"
+  },
+  "version": "1.0.1",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -8,8 +14,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build": "yarn electron-webpack && yarn electron-builder --dir -c.compression=store --publish never",
-    "deploy": "yarn electron-webpack && yarn electron-builder --dir --publish always"
+    "build": "yarn electron-webpack && yarn electron-builder --dir -c.compression=store --win --publish never",
+    "deploy": "set DEBUG=electron-builder && yarn electron-webpack && yarn electron-builder --config electron-builder.yml --win --publish always"
   },
   "repository": {
     "type" : "git",
